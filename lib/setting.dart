@@ -29,11 +29,12 @@ class _SettingPageState extends State<SettingPage> {
                 color: Colors.blue,
                 child: ListTile(
                   title: Text(
-                    'George Yang',
+                    'Donald Trump',
                     style: TextStyle(color: Colors.white),
                   ),
                   leading: CircleAvatar(
                     backgroundColor: Colors.amber,
+                    backgroundImage: AssetImage("assets/donald.png"),
                   ),
                   trailing: Icon(
                     Icons.edit,
@@ -57,7 +58,7 @@ class _SettingPageState extends State<SettingPage> {
                       title: Text('Change Language'),
                       leading: Icon(
                         Icons.language,
-                        color: Color.fromRGBO(0, 114, 206, 1),
+                        color: Color.fromRGBO(0, 114, 206, 0.5),
                       ),
                       trailing: Icon(Icons.keyboard_arrow_right),
                       onTap: () {
@@ -76,7 +77,7 @@ class _SettingPageState extends State<SettingPage> {
                       title: Text('Change Theme'),
                       leading: Icon(
                         Icons.language,
-                        color: Color.fromRGBO(0, 114, 206, 1),
+                        color: Color.fromRGBO(0, 114, 206, 0.5),
                       ),
                       trailing: Icon(Icons.keyboard_arrow_right),
                       onTap: () {
@@ -95,7 +96,7 @@ class _SettingPageState extends State<SettingPage> {
                       title: Text('Coming Soon'),
                       leading: Icon(
                         Icons.language,
-                        color: Color.fromRGBO(0, 114, 206, 1),
+                        color: Color.fromRGBO(0, 114, 206, 0.5),
                       ),
                       trailing: Icon(Icons.keyboard_arrow_right),
                       onTap: () {

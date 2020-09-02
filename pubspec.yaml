@@ -21,6 +21,7 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  google_fonts: ^0.2.0
   flutter:
     sdk: flutter
 
@@ -43,6 +44,17 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+
+  assets:
+    - assets/notification.png
+    - assets/calendar.png
+    - assets/festival.png
+    - assets/food.png
+    - assets/map.png
+    - assets/setting.png
+    - assets/todo.png
+    - assets/wing.png
+    - assets/donald.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
