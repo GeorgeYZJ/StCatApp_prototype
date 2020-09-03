@@ -63,38 +63,6 @@ class _MorePageState extends State<MorePage> {
                 SizedBox(
                   height: 10,
                 ),
-                Padding(
-                  padding: EdgeInsets.only(left: 26, right: 16),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            "St Cat\'s College",
-                            style: GoogleFonts.openSans(
-                                textStyle: TextStyle(
-                                    color: Colors.black38,
-                                    fontSize: 28,
-                                    fontWeight: FontWeight.bold)),
-                          ),
-                          SizedBox(
-                            height: 4,
-                          ),
-                        ],
-                      ),
-                      IconButton(
-                        alignment: Alignment.topCenter,
-                        icon: Image.asset(
-                          "assets/notification.png",
-                          width: 80,
-                        ),
-                        onPressed: () {},
-                      )
-                    ],
-                  ),
-                ),
                 SizedBox(
                   height: 13,
                 ),
@@ -113,7 +81,14 @@ class _MorePageState extends State<MorePage> {
                     onTap: () {},
                     child: Container(
                       decoration: BoxDecoration(
-                          color: Color.fromRGBO(0, 114, 206, 0.8),
+                          gradient: LinearGradient(
+                            colors: [
+                              Color.fromRGBO(0, 114, 206, 0.8).withOpacity(0.4),
+                              Color.fromRGBO(0, 114, 206, 0.8),
+                            ],
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                          ),
                           borderRadius: BorderRadius.circular(10)),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,

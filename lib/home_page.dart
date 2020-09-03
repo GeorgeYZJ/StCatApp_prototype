@@ -14,7 +14,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  PageController _pageController = PageController();
+  int _selectedIndex = 2;
+  PageController _pageController = PageController(initialPage: 2);
   List<Widget> _screens = [
     GroupPage(),
     WindPage(),
@@ -23,7 +24,6 @@ class _HomePageState extends State<HomePage> {
     MorePage(),
   ];
 
-  int _selectedIndex = 2;
   void _onPageChange(int index) {
     setState(() {
       _selectedIndex = index;
