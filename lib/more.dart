@@ -51,28 +51,16 @@ class _MorePageState extends State<MorePage> {
     List<Items> myList = [item1, item2, item3, item4, item5, item6];
 
     return Scaffold(
+      backgroundColor: Colors.grey.shade200,
       appBar: AppBar(
         title: Text('More Information'),
       ),
       body: Column(
         children: <Widget>[
-          Container(
-            color: Colors.white,
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 10,
-                ),
-                SizedBox(
-                  height: 13,
-                ),
-              ],
-            ),
-          ),
           Flexible(
             child: GridView.count(
                 childAspectRatio: 1.0,
-                padding: EdgeInsets.only(left: 16, right: 16),
+                padding: EdgeInsets.only(left: 16, right: 16, top: 13),
                 crossAxisCount: 2,
                 crossAxisSpacing: 18,
                 mainAxisSpacing: 18,
