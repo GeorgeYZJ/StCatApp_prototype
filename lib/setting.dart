@@ -7,6 +7,10 @@ class SettingPage extends StatefulWidget {
   _SettingPageState createState() => _SettingPageState();
 }
 
+double deviceHeight(BuildContext context) => MediaQuery.of(context).size.height;
+
+double deviceWidth(BuildContext context) => MediaQuery.of(context).size.width;
+
 class _SettingPageState extends State<SettingPage> {
   bool _switch1 = false;
   bool _switch2 = true;
@@ -45,8 +49,8 @@ class _SettingPageState extends State<SettingPage> {
                   },
                 ),
               ),
-              const SizedBox(
-                height: 15,
+              SizedBox(
+                height: deviceHeight(context) * 0.04,
               ),
               Card(
                 shape: RoundedRectangleBorder(
@@ -76,7 +80,7 @@ class _SettingPageState extends State<SettingPage> {
                     ListTile(
                       title: Text('Change Theme'),
                       leading: Icon(
-                        Icons.language,
+                        Icons.theaters,
                         color: Color.fromRGBO(0, 114, 206, 0.5),
                       ),
                       trailing: Icon(Icons.keyboard_arrow_right),
@@ -90,12 +94,12 @@ class _SettingPageState extends State<SettingPage> {
                       ),
                       width: double.infinity,
                       height: 1,
-                      color: Colors.grey.shade500,
+                      color: Colors.grey.shade400,
                     ),
                     ListTile(
                       title: Text('Coming Soon'),
                       leading: Icon(
-                        Icons.language,
+                        Icons.people,
                         color: Color.fromRGBO(0, 114, 206, 0.5),
                       ),
                       trailing: Icon(Icons.keyboard_arrow_right),

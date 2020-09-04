@@ -35,6 +35,9 @@ List<Color> myColors = [
   _DarkWhiteColor,
   _DarkWhiteColor
 ];
+double deviceHeight(BuildContext context) => MediaQuery.of(context).size.height;
+
+double deviceWidth(BuildContext context) => MediaQuery.of(context).size.width;
 
 class _IndexPageState extends State<IndexPage> {
   @override
@@ -48,7 +51,7 @@ class _IndexPageState extends State<IndexPage> {
           Padding(
             padding: const EdgeInsets.only(top: 8),
             child: Container(
-              height: 90,
+              height: MediaQuery.of(context).size.height * 0.14,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
@@ -71,11 +74,15 @@ class _IndexPageState extends State<IndexPage> {
               ),
             ),
           ),
+          Divider(
+            color: Colors.grey.shade400,
+            height: deviceHeight(context) * 0.28,
+            thickness: 1,
+          ),
           Padding(
-            padding: const EdgeInsets.only(top: 90),
+            padding: EdgeInsets.only(top: deviceHeight(context) * 0.14),
             child: ListView(
               children: <Widget>[
-                Divider(),
                 Container(
                   child: ListView(
                     shrinkWrap: true,
