@@ -50,7 +50,7 @@ class _SettingPageState extends State<SettingPage> {
                 ),
               ),
               SizedBox(
-                height: deviceHeight(context) * 0.04,
+                height: deviceHeight(context) * 0.03,
               ),
               Card(
                 shape: RoundedRectangleBorder(
@@ -110,9 +110,9 @@ class _SettingPageState extends State<SettingPage> {
                   ],
                 ),
               ),
-              const SizedBox(height: 10),
+              SizedBox(height: deviceHeight(context) * 0.03),
               Text(
-                "Notification Settings",
+                "    Notification Settings",
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -127,7 +127,7 @@ class _SettingPageState extends State<SettingPage> {
                     _switch1 = val;
                   });
                 },
-                title: Text("Received Notification"),
+                title: Text(" Received Notification"),
               ),
               SwitchListTile(
                 contentPadding: const EdgeInsets.all(5),
@@ -138,7 +138,7 @@ class _SettingPageState extends State<SettingPage> {
                     _switch2 = val;
                   });
                 },
-                title: Text("Upcoming Event"),
+                title: Text(" Upcoming Event"),
               ),
             ],
           ),
