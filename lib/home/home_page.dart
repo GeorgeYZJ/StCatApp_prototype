@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import './group.dart';
-import './more.dart';
-import './wind.dart';
-import './setting.dart';
+import '../group/group.dart';
+import '../more/more.dart';
+import '../wing/wing.dart';
+import '../setting/setting.dart';
 import './index.dart';
 
 class HomePage extends StatefulWidget {
