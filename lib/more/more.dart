@@ -53,6 +53,7 @@ class _MorePageState extends State<MorePage> {
     return Scaffold(
       backgroundColor: Colors.grey.shade200,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text('More Information'),
       ),
       body: Column(

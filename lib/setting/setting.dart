@@ -19,6 +19,7 @@ class _SettingPageState extends State<SettingPage> {
     return Scaffold(
         backgroundColor: Colors.grey.shade200,
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           title: Text('Setting'),
         ),
         body: SingleChildScrollView(
@@ -87,14 +88,6 @@ class _SettingPageState extends State<SettingPage> {
                       onTap: () {
                         //turn to other page
                       },
-                    ),
-                    Container(
-                      margin: const EdgeInsets.symmetric(
-                        horizontal: 8,
-                      ),
-                      width: double.infinity,
-                      height: 1,
-                      color: Colors.grey.shade400,
                     ),
                     ListTile(
                       title: Text('Coming Soon'),

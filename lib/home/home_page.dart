@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../group/group.dart';
 import '../more/more.dart';
-import '../wing/wing.dart';
+import '../service/Service.dart';
 import '../setting/setting.dart';
 import './index.dart';
 
@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
   PageController _pageController = PageController(initialPage: 2);
   List<Widget> _screens = [
     GroupPage(),
-    WindPage(),
+    ServicePage(),
     IndexPage(),
     SettingPage(),
     MorePage(),

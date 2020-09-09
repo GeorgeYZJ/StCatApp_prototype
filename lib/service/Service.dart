@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
-import './foldcell.dart';
+import 'foldcell.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class WindPage extends StatefulWidget {
-  WindPage({Key key}) : super(key: key);
+class ServicePage extends StatefulWidget {
+  ServicePage({Key key}) : super(key: key);
 
   @override
-  _WindPageState createState() => _WindPageState();
+  _ServicePageState createState() => _ServicePageState();
 }
 
-class _WindPageState extends State<WindPage> {
+class _ServicePageState extends State<ServicePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text('Wing\'s Discussion'),
       ),
       body: Container(
@@ -125,11 +126,14 @@ class _WindPageState extends State<WindPage> {
                   padding:
                       EdgeInsets.only(left: 8, top: 40, right: 8, bottom: 8),
                   child: Text(
-                    "      Message\'s DETAIL - $index This is a long sentences  This is a long sentences, This is a long sentences This is a long sentences This is a long sentences This is a long sentences",
+                    "      Message\'s DETAIL - $index This is a long sentences  This is a long sentences, This is a long sentences, This is a long sentences, This is a long sentences, This is a long sentences, This is a long sentences,",
                     style: GoogleFonts.lato(
                       color: Color(0xFF2e282a),
                       fontSize: 17.0,
+                      wordSpacing: 2,
                     ),
+                    softWrap: true,
+                    textAlign: TextAlign.justify,
                   ),
                 ),
               ],

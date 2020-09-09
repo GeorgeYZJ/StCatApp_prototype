@@ -29,12 +29,7 @@ List<IconData> myicons = [
   Icons.mood_bad,
   Icons.adb,
 ];
-List<Color> myColors = [
-  _ViolaColor,
-  _DarkWhiteColor,
-  _DarkWhiteColor,
-  _DarkWhiteColor
-];
+
 double deviceHeight(BuildContext context) => MediaQuery.of(context).size.height;
 
 double deviceWidth(BuildContext context) => MediaQuery.of(context).size.width;
@@ -44,6 +39,7 @@ class _IndexPageState extends State<IndexPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text('St Cathrine\'s Home'),
       ),
       body: Stack(
@@ -56,20 +52,34 @@ class _IndexPageState extends State<IndexPage> {
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
                 children: <Widget>[
-                  _SectionCard(myTitles[0], myicons[0], _DarkWhiteColor,
-                      _MainColor, _MainColor),
-                  _SectionCard(myTitles[1], myicons[1], _DarkWhiteColor,
-                      _MainColor, _MainColor),
-                  _SectionCard(myTitles[2], myicons[2],
-                      _ViolaColor.withOpacity(0.7), _MainColor, _MainColor),
-                  _SectionCard(myTitles[3], myicons[3], _DarkWhiteColor,
-                      _MainColor, _MainColor),
-                  _SectionCard(myTitles[4], myicons[4], _DarkWhiteColor,
-                      _MainColor, _MainColor),
-                  _SectionCard(myTitles[0], myicons[0], _DarkWhiteColor,
-                      _MainColor, _MainColor),
-                  _SectionCard(myTitles[2], myicons[2], _DarkWhiteColor,
-                      _MainColor, _MainColor),
+                  _SectionCard(
+                    myTitles[0],
+                    myicons[0],
+                  ),
+                  _SectionCard(
+                    myTitles[1],
+                    myicons[1],
+                  ),
+                  _SectionCard(
+                    myTitles[2],
+                    myicons[2],
+                  ),
+                  _SectionCard(
+                    myTitles[3],
+                    myicons[3],
+                  ),
+                  _SectionCard(
+                    myTitles[4],
+                    myicons[4],
+                  ),
+                  _SectionCard(
+                    myTitles[0],
+                    myicons[0],
+                  ),
+                  _SectionCard(
+                    myTitles[2],
+                    myicons[2],
+                  ),
                 ],
               ),
             ),
@@ -159,8 +169,7 @@ class _IndexPageState extends State<IndexPage> {
     );
   }
 
-  Widget _SectionCard(String title, IconData myIcon, Color myColor,
-      Color btnColor, Color contentColor) {
+  Widget _SectionCard(String title, IconData myIcon) {
     return Padding(
       padding: const EdgeInsets.all(5.0),
       child: Column(
@@ -181,7 +190,7 @@ class _IndexPageState extends State<IndexPage> {
                 children: <Widget>[
                   Icon(
                     myIcon,
-                    color: contentColor,
+                    color: Color.fromRGBO(0, 38, 56, 1),
                     size: 30,
                   ),
                   SizedBox(
@@ -196,7 +205,7 @@ class _IndexPageState extends State<IndexPage> {
             child: Text(
               title,
               style: TextStyle(
-                color: contentColor,
+                color: Color.fromRGBO(0, 38, 56, 1),
                 fontSize: 15,
               ),
             ),
