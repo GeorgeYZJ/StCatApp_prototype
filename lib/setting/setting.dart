@@ -89,6 +89,14 @@ class _SettingPageState extends State<SettingPage> {
                         //turn to other page
                       },
                     ),
+                    Container(
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: 8,
+                      ),
+                      width: double.infinity,
+                      height: 1,
+                      color: Colors.grey.shade400,
+                    ),
                     ListTile(
                       title: Text('Coming Soon'),
                       leading: Icon(

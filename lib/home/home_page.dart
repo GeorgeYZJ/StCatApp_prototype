@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 import '../group/group.dart';
 import '../more/more.dart';
@@ -43,7 +44,7 @@ class _HomePageState extends State<HomePage> {
         onPageChanged: _onPageChange,
         physics: NeverScrollableScrollPhysics(),
       ),
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: Color.fromRGBO(0, 114, 206, 1),
         type: BottomNavigationBarType.fixed,
         onTap: _onItemTapped,
