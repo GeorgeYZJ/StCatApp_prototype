@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'foldcell.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 class ServicePage extends StatefulWidget {
   ServicePage({Key key}) : super(key: key);
@@ -111,7 +112,7 @@ class _ServicePageState extends State<ServicePage> {
                     alignment: Alignment.topLeft,
                     child: Text(
                       "Message\'s Topic - $index",
-                      style: GoogleFonts.aldrich(
+                      style: GoogleFonts.arimo(
                         color: Color(0xFF2e282a),
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
@@ -127,7 +128,7 @@ class _ServicePageState extends State<ServicePage> {
                       EdgeInsets.only(left: 8, top: 40, right: 8, bottom: 8),
                   child: Text(
                     "      Message\'s DETAIL - $index This is a long sentences  This is a long sentences, This is a long sentences, This is a long sentences, This is a long sentences, This is a long sentences, This is a long sentences,",
-                    style: GoogleFonts.lato(
+                    style: GoogleFonts.arimo(
                       color: Color(0xFF2e282a),
                       fontSize: 17.0,
                       wordSpacing: 2,

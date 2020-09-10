@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
         onPageChanged: _onPageChange,
         physics: NeverScrollableScrollPhysics(),
       ),
-      bottomNavigationBar: CurvedNavigationBar(
+      bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Color.fromRGBO(0, 114, 206, 1),
         type: BottomNavigationBarType.fixed,
         onTap: _onItemTapped,
