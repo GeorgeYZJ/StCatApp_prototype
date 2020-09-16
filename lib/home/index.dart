@@ -162,7 +162,7 @@ class _IndexPageState extends State<IndexPage> {
             children: <Widget>[
               InkWell(
                 splashColor: Colors.lightBlueAccent,
-                onTap: () {},
+                onTap: () => _onItemTapped,
                 child: Container(
                   height: MediaQuery.of(context).size.height * 0.08,
                   width: MediaQuery.of(context).size.width * 0.15,
