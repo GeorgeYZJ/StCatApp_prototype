@@ -42,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     void _toHomePage(BuildContext context) {
-      Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) {
         return HomePage();
       }));
     }

@@ -64,8 +64,8 @@ class _IndexPageState extends State<IndexPage> {
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.only(top: 8),
-            child: Container(
-              height: MediaQuery.of(context).size.height * 0.14,
+            child: Expanded(
+              flex: 1,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
@@ -73,30 +73,37 @@ class _IndexPageState extends State<IndexPage> {
                   _SectionCard(
                     myTitles[0],
                     myicons[0],
+                    _onItemTapped,
                   ),
                   _SectionCard(
                     myTitles[1],
                     myicons[1],
+                    _onItemTapped,
                   ),
                   _SectionCard(
                     myTitles[2],
                     myicons[2],
+                    _onItemTapped,
                   ),
                   _SectionCard(
                     myTitles[3],
                     myicons[3],
+                    _onItemTapped,
                   ),
                   _SectionCard(
                     myTitles[4],
                     myicons[4],
+                    _onItemTapped,
                   ),
                   _SectionCard(
                     myTitles[0],
                     myicons[0],
+                    _onItemTapped,
                   ),
                   _SectionCard(
                     myTitles[2],
                     myicons[2],
+                    _onItemTapped,
                   ),
                 ],
               ),
@@ -108,8 +115,8 @@ class _IndexPageState extends State<IndexPage> {
             thickness: 1,
           ),
           //loadcontent(),
-          Container(
-            height: deviceHeight(context) * 0.8,
+          Expanded(
+            flex: 8,
             child: PageView(
               controller: _pageController,
               children: _pages,
@@ -153,7 +160,7 @@ class _IndexPageState extends State<IndexPage> {
     );
   }
 
-  Widget _SectionCard(String title, IconData myIcon) {
+  Widget _SectionCard(String title, IconData myIcon, Function changepage) {
     return Stack(
       children: [
         Padding(
@@ -162,7 +169,7 @@ class _IndexPageState extends State<IndexPage> {
             children: <Widget>[
               InkWell(
                 splashColor: Colors.lightBlueAccent,
-                onTap: () => _onItemTapped,
+                onTap: () => changepage,
                 child: Container(
                   height: MediaQuery.of(context).size.height * 0.08,
                   width: MediaQuery.of(context).size.width * 0.15,
