@@ -32,6 +32,8 @@ class _ServicePageState extends State<ServicePage> {
                     attribute: "date",
                     inputType: InputType.date,
                     format: DateFormat("yyyy-MM-dd"),
+                    firstDate: DateTime.now(),
+                    // timePicker: ,
                     decoration: InputDecoration(labelText: "Appointment Time"),
                   ),
                   FormBuilderSlider(
