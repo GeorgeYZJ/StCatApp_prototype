@@ -29,8 +29,8 @@ class IndexPage extends StatefulWidget {
 }
 
 class _IndexPageState extends State<IndexPage> {
-  int _selectedIndex = 2;
-  PageController _pageController = PageController(initialPage: 2);
+  int _selectedIndex = 0;
+  PageController _pageController1 = PageController(initialPage: 0);
 
   void _onPageChange(int index) {
     setState(() {
@@ -39,18 +39,27 @@ class _IndexPageState extends State<IndexPage> {
   }
 
   void _onItemTapped(int selectedIndex) {
-    _pageController.jumpToPage(selectedIndex);
+    _pageController1.jumpToPage(selectedIndex);
   }
 
-  Widget renderContent;
   List<Widget> _pages = [
     loadcontent(),
+    Container(
+      color: Colors.amber,
+    ),
     loadcontent(),
-    loadcontent(),
-    loadcontent(),
-    loadcontent(),
-    loadcontent(),
-    loadcontent(),
+    Container(
+      color: Colors.limeAccent,
+    ),
+    Container(
+      color: Colors.blueAccent,
+    ),
+    Container(
+      color: Colors.limeAccent,
+    ),
+    Container(
+      color: Colors.amber,
+    ),
   ];
 
   @override
@@ -60,68 +69,66 @@ class _IndexPageState extends State<IndexPage> {
         automaticallyImplyLeading: false,
         title: Text('St Cathrine\'s Home'),
       ),
-      body: Stack(
+      body: Column(
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(top: 8),
-            child: Expanded(
-              flex: 1,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                shrinkWrap: true,
-                children: <Widget>[
-                  _SectionCard(
-                    myTitles[0],
-                    myicons[0],
-                    _onItemTapped,
-                  ),
-                  _SectionCard(
-                    myTitles[1],
-                    myicons[1],
-                    _onItemTapped,
-                  ),
-                  _SectionCard(
-                    myTitles[2],
-                    myicons[2],
-                    _onItemTapped,
-                  ),
-                  _SectionCard(
-                    myTitles[3],
-                    myicons[3],
-                    _onItemTapped,
-                  ),
-                  _SectionCard(
-                    myTitles[4],
-                    myicons[4],
-                    _onItemTapped,
-                  ),
-                  _SectionCard(
-                    myTitles[0],
-                    myicons[0],
-                    _onItemTapped,
-                  ),
-                  _SectionCard(
-                    myTitles[2],
-                    myicons[2],
-                    _onItemTapped,
-                  ),
-                ],
-              ),
+          Expanded(
+            flex: 15,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              shrinkWrap: true,
+              children: <Widget>[
+                _SectionCard(
+                  myTitles[0],
+                  myicons[0],
+                  0,
+                ),
+                _SectionCard(
+                  myTitles[1],
+                  myicons[1],
+                  1,
+                ),
+                _SectionCard(
+                  myTitles[2],
+                  myicons[2],
+                  2,
+                ),
+                _SectionCard(
+                  myTitles[3],
+                  myicons[3],
+                  3,
+                ),
+                _SectionCard(
+                  myTitles[4],
+                  myicons[4],
+                  4,
+                ),
+                _SectionCard(
+                  myTitles[0],
+                  myicons[0],
+                  5,
+                ),
+                _SectionCard(
+                  myTitles[2],
+                  myicons[2],
+                  6,
+                ),
+              ],
             ),
           ),
-          Divider(
-            color: Colors.grey.shade400,
-            height: deviceHeight(context) * 0.28,
-            thickness: 1,
+          Container(
+            width: double.infinity,
+            height: 1,
+            color: Colors.grey.shade600,
           ),
           //loadcontent(),
           Expanded(
-            flex: 8,
+            flex: 77,
             child: PageView(
-              controller: _pageController,
+              controller: _pageController1, // It is used to control the pages.
               children: _pages,
-              onPageChanged: _onPageChange,
-              physics: NeverScrollableScrollPhysics(),
+              onPageChanged:
+                  _onPageChange, // This is called when page change occurs.
+              physics: BouncingScrollPhysics(),
             ),
           ),
         ],
@@ -129,7 +136,7 @@ class _IndexPageState extends State<IndexPage> {
     );
   }
 
-  Widget custumTextField(String hint, Icon iconName) {
+  Widget customTextField(String hint, Icon iconName) {
     return Column(
       children: <Widget>[
         SizedBox(
@@ -160,7 +167,7 @@ class _IndexPageState extends State<IndexPage> {
     );
   }
 
-  Widget _SectionCard(String title, IconData myIcon, Function changepage) {
+  Widget _SectionCard(String title, IconData myIcon, int index) {
     return Stack(
       children: [
         Padding(
@@ -169,7 +176,11 @@ class _IndexPageState extends State<IndexPage> {
             children: <Widget>[
               InkWell(
                 splashColor: Colors.lightBlueAccent,
-                onTap: () => changepage,
+                onTap: () {
+                  setState(() {
+                    _pageController1.jumpToPage(index);
+                  });
+                },
                 child: Container(
                   height: MediaQuery.of(context).size.height * 0.08,
                   width: MediaQuery.of(context).size.width * 0.15,

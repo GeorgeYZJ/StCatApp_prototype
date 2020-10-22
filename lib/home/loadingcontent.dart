@@ -17,45 +17,42 @@ class loadcontent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(top: deviceHeight(context) * 0.14),
-      child: ListView(
-        children: <Widget>[
-          Container(
-            child: ListView(
-              shrinkWrap: true,
-              physics: ClampingScrollPhysics(),
-              children: <Widget>[
-                InkWell(
-                  onTap: () {},
-                  child: _ProductCard(myImageUrl[0], "Notification",
-                      "Things and Events You Should Know This Week"),
-                ),
-                InkWell(
-                  onTap: () {},
-                  child: _ProductCard(myImageUrl[1], "Make more friends",
-                      "Know More People In The College"),
-                ),
-                InkWell(
-                  onTap: () {},
-                  child: _ProductCard(myImageUrl[2], "Let\' Study",
-                      "Get To Know People Doing Same Units In The College"),
-                ),
-                InkWell(
-                  onTap: () {},
-                  child: _ProductCard(myImageUrl[3], "St Cat\'s Event",
-                      "Events Coming Up This Week"),
-                ),
-                InkWell(
-                  onTap: () {},
-                  child: _ProductCard(
-                      myImageUrl[4], "Today\'s Menu", "Best Dishes of The Day"),
-                ),
-              ],
-            ),
+    return ListView(
+      children: <Widget>[
+        Container(
+          child: ListView(
+            shrinkWrap: true,
+            physics: ClampingScrollPhysics(),
+            children: <Widget>[
+              InkWell(
+                onTap: () {},
+                child: _ProductCard(myImageUrl[0], "Notification",
+                    "Things and Events You Should Know This Week"),
+              ),
+              InkWell(
+                onTap: () {},
+                child: _ProductCard(myImageUrl[1], "Make more friends",
+                    "Know More People In The College"),
+              ),
+              InkWell(
+                onTap: () {},
+                child: _ProductCard(myImageUrl[2], "Let\' Study",
+                    "Get To Know People Doing Same Units In The College"),
+              ),
+              InkWell(
+                onTap: () {},
+                child: _ProductCard(myImageUrl[3], "St Cat\'s Event",
+                    "Events Coming Up This Week"),
+              ),
+              InkWell(
+                onTap: () {},
+                child: _ProductCard(
+                    myImageUrl[4], "Today\'s Menu", "Best Dishes of The Day"),
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
