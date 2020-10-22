@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'foldcell.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:intl/intl.dart';
 
 class ServicePage extends StatefulWidget {
   ServicePage({Key key}) : super(key: key);
@@ -11,137 +11,150 @@ class ServicePage extends StatefulWidget {
 }
 
 class _ServicePageState extends State<ServicePage> {
+  final GlobalKey<FormBuilderState> _fbKey = GlobalKey<FormBuilderState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text('Wing\'s Discussion'),
+        title: Text('Cat\'s Portal'),
       ),
-      body: Container(
-        color: Colors.grey.shade200,
-        child: ListView.builder(
-          itemCount: 10,
-          itemBuilder: (context, index) {
-            return SimpleFoldingCell.create(
-              frontWidget: _buildFrontWidget(index),
-              innerWidget: _buildInnerWidget(index),
-              cellSize: Size(MediaQuery.of(context).size.width, 125),
-              padding: EdgeInsets.all(15),
-              animationDuration: Duration(milliseconds: 300),
-              borderRadius: 10,
-              onOpen: () {},
-              onClose: () {},
-            );
-          },
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            FormBuilder(
+              key: _fbKey,
+              autovalidate: true,
+              child: Column(
+                children: <Widget>[
+                  FormBuilderDateTimePicker(
+                    attribute: "date",
+                    inputType: InputType.date,
+                    format: DateFormat("yyyy-MM-dd"),
+                    decoration: InputDecoration(labelText: "Appointment Time"),
+                  ),
+                  FormBuilderSlider(
+                    attribute: "slider",
+                    validators: [FormBuilderValidators.min(6)],
+                    min: 0.0,
+                    max: 10.0,
+                    initialValue: 1.0,
+                    divisions: 20,
+                    decoration:
+                        InputDecoration(labelText: "Number of somethings"),
+                  ),
+                  FormBuilderCheckbox(
+                    attribute: 'accept_terms',
+                    initialValue: false,
+                    label: Text(
+                        "I have read and agree to the terms and conditions"),
+                    validators: [
+                      FormBuilderValidators.requiredTrue(
+                        errorText:
+                            "You must accept terms and conditions to continue",
+                      ),
+                    ],
+                  ),
+                  FormBuilderDropdown(
+                    attribute: "gender",
+                    decoration: InputDecoration(labelText: "Gender"),
+                    // initialValue: 'Male',
+                    hint: Text('Select Gender'),
+                    validators: [FormBuilderValidators.required()],
+                    items: ['Male', 'Female', 'Other']
+                        .map((gender) => DropdownMenuItem(
+                            value: gender, child: Text("$gender")))
+                        .toList(),
+                  ),
+                  FormBuilderTextField(
+                    attribute: "age",
+                    decoration: InputDecoration(labelText: "Age"),
+                    validators: [
+                      FormBuilderValidators.numeric(),
+                      FormBuilderValidators.max(70),
+                    ],
+                  ),
+                  FormBuilderRadioGroup(
+                    decoration:
+                        InputDecoration(labelText: 'My chosen language'),
+                    controlAffinity: ControlAffinity.leading,
+                    orientation: GroupedRadioOrientation.vertical,
+                    attribute: "best_language",
+                    validators: [FormBuilderValidators.required()],
+                    options: ["Dart", "Kotlin", "Java", "Swift", "Objective-C"]
+                        .map((lang) => FormBuilderFieldOption(value: lang))
+                        .toList(growable: false),
+                  ),
+                  FormBuilderSegmentedControl(
+                    decoration:
+                        InputDecoration(labelText: "Movie Rating (Archer)"),
+                    attribute: "movie_rating",
+                    options: List.generate(5, (i) => i + 1)
+                        .map((number) => FormBuilderFieldOption(value: number))
+                        .toList(),
+                  ),
+                  FormBuilderSwitch(
+                    label: Text('I Accept the tems and conditions'),
+                    attribute: "accept_terms_switch",
+                    initialValue: true,
+                  ),
+                  FormBuilderTouchSpin(
+                    decoration: InputDecoration(labelText: "Stepper"),
+                    attribute: "stepper",
+                    initialValue: 10,
+                    step: 1,
+                  ),
+                  FormBuilderRate(
+                    decoration: InputDecoration(labelText: "Rate this form"),
+                    attribute: "rate",
+                    iconSize: 32.0,
+                    initialValue: 1,
+                    max: 5,
+                  ),
+                  FormBuilderCheckboxGroup(
+                    decoration:
+                        InputDecoration(labelText: "The language of my people"),
+                    attribute: "languages",
+                    initialValue: ["Dart"],
+                    options: [
+                      FormBuilderFieldOption(value: "Dart"),
+                      FormBuilderFieldOption(value: "Kotlin"),
+                      FormBuilderFieldOption(value: "Java"),
+                      FormBuilderFieldOption(value: "Swift"),
+                      FormBuilderFieldOption(value: "Objective-C"),
+                    ],
+                  ),
+                  FormBuilderSignaturePad(
+                    decoration: InputDecoration(labelText: "Signature"),
+                    attribute: "signature",
+                    height: 100,
+                  ),
+                ],
+              ),
+            ),
+            Row(
+              children: <Widget>[
+                MaterialButton(
+                  child: Text("Submit"),
+                  onPressed: () {
+                    _fbKey.currentState.save();
+                    if (_fbKey.currentState.validate()) {
+                      print(_fbKey.currentState.value);
+                    }
+                  },
+                ),
+                MaterialButton(
+                  child: Text("Reset"),
+                  onPressed: () {
+                    _fbKey.currentState.reset();
+                  },
+                ),
+              ],
+            )
+          ],
         ),
       ),
-    );
-  }
-
-  Widget _buildFrontWidget(int index) {
-    return Builder(
-      builder: (BuildContext context) {
-        return InkWell(
-          onTap: () {
-            final foldingCellState =
-                context.findAncestorStateOfType<SimpleFoldingCellState>();
-            foldingCellState?.toggleFold();
-          },
-          child: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Color.fromRGBO(218, 170, 0, 1),
-                  Color.fromRGBO(223, 25, 149, 1),
-                ],
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-              ),
-            ),
-            alignment: Alignment.center,
-            child: Stack(
-              children: <Widget>[
-                Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    "Message\'s Topic - $index",
-                    style: GoogleFonts.lato(
-                      color: Color(0xFF2e282a),
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        );
-      },
-    );
-  }
-
-  Widget _buildInnerWidget(int index) {
-    return Builder(
-      builder: (context) {
-        return InkWell(
-          onTap: () {
-            final foldingCellState =
-                context.findAncestorStateOfType<SimpleFoldingCellState>();
-            foldingCellState?.toggleFold();
-          },
-          child: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Color.fromRGBO(218, 170, 0, 0.8).withOpacity(0.1),
-                  Color.fromRGBO(223, 25, 149, 0.8).withOpacity(0.4),
-                  Color.fromRGBO(0, 114, 206, 0.6),
-                ],
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-              ),
-              borderRadius: BorderRadius.circular(30),
-            ),
-            padding: EdgeInsets.only(top: 10),
-            child: Stack(
-              children: [
-                Container(
-                  padding: EdgeInsets.only(left: 15, top: 5),
-                  child: Align(
-                    alignment: Alignment.topLeft,
-                    child: Text(
-                      "Message\'s Topic - $index",
-                      style: GoogleFonts.arimo(
-                        color: Color(0xFF2e282a),
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Container(
-                  padding:
-                      EdgeInsets.only(left: 8, top: 40, right: 8, bottom: 8),
-                  child: Text(
-                    "      Message\'s DETAIL - $index This is a long sentences  This is a long sentences, This is a long sentences, This is a long sentences, This is a long sentences, This is a long sentences, This is a long sentences,",
-                    style: GoogleFonts.arimo(
-                      color: Color(0xFF2e282a),
-                      fontSize: 17.0,
-                      wordSpacing: 2,
-                    ),
-                    softWrap: true,
-                    textAlign: TextAlign.justify,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        );
-      },
     );
   }
 }

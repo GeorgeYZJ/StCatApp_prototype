@@ -52,12 +52,15 @@ class _MorePageState extends State<MorePage> {
 
     return Scaffold(
       backgroundColor: Colors.grey.shade200,
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Text('More Information'),
-      ),
+      // appBar: AppBar(
+      //   automaticallyImplyLeading: false,
+      //   title: Text('More Information'),
+      // ),
       body: Column(
         children: <Widget>[
+          SizedBox(
+            height: 18,
+          ),
           Flexible(
             child: GridView.count(
                 childAspectRatio: 1.0,

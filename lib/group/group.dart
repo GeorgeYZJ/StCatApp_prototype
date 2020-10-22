@@ -19,68 +19,16 @@ class _GroupPageState extends State<GroupPage> {
       home: DefaultTabController(
         length: 2,
         child: Scaffold(
-          // backgroundColor: Colors.grey.shade300,
-          appBar: AppBar(
-            automaticallyImplyLeading: false,
-            title: Text('Cat\'s Group'),
-          ),
-          body: Column(
-            children: [
-              Container(
-                height: MediaQuery.of(context).size.height * 0.12,
-                child: TabBar(
-                  isScrollable: true,
-                  tabs: [
-                    Container(
-                      height: MediaQuery.of(context).size.height * 0.08,
-                      width: MediaQuery.of(context).size.width * 0.15,
-                      decoration: BoxDecoration(
-                        color: Color.fromRGBO(223, 25, 149, 0.8),
-                        borderRadius: BorderRadius.circular(80),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: <Widget>[
-                          Icon(
-                            Icons.event_busy,
-                            color: Color.fromRGBO(0, 38, 56, 1),
-                            size: 30,
-                          ),
-                          SizedBox(
-                            height: 1,
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      height: MediaQuery.of(context).size.height * 0.08,
-                      width: MediaQuery.of(context).size.width * 0.15,
-                      decoration: BoxDecoration(
-                        color: Color.fromRGBO(223, 25, 149, 0.8),
-                        borderRadius: BorderRadius.circular(80),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Icon(
-                            Icons.event_busy,
-                            color: Color.fromRGBO(0, 38, 56, 1),
-                            size: 30,
-                          ),
-                          SizedBox(
-                            height: 1,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+            // backgroundColor: Colors.grey.shade300,
+            appBar: AppBar(
+              automaticallyImplyLeading: false,
+              title: Text('Cat\'s Group'),
+            ),
+            body: Container(
+              child: Center(
+                child: Text("This is for the group discussion."),
               ),
-            ],
-          ),
-        ),
+            )),
       ),
     );
   }

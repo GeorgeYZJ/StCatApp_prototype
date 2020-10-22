@@ -47,7 +47,7 @@ class _IndexPageState extends State<IndexPage> {
     Container(
       color: Colors.amber,
     ),
-    loadcontent(),
+    foldCell(),
     Container(
       color: Colors.limeAccent,
     ),
