@@ -65,107 +65,142 @@ class _IndexPageState extends State<IndexPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Text('St Cathrine\'s Home'),
-      ),
-      body: Column(
-        children: <Widget>[
-          Expanded(
-            flex: 15,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              shrinkWrap: true,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(55.0),
+        child: AppBar(
+            automaticallyImplyLeading: false,
+            elevation: 0,
+            backgroundColor: Colors.white,
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                _SectionCard(
-                  myTitles[0],
-                  myicons[0],
-                  0,
-                ),
-                _SectionCard(
-                  myTitles[1],
-                  myicons[1],
-                  1,
-                ),
-                _SectionCard(
-                  myTitles[2],
-                  myicons[2],
-                  2,
-                ),
-                _SectionCard(
-                  myTitles[3],
-                  myicons[3],
-                  3,
-                ),
-                _SectionCard(
-                  myTitles[4],
-                  myicons[4],
-                  4,
-                ),
-                _SectionCard(
-                  myTitles[0],
-                  myicons[0],
-                  5,
-                ),
-                _SectionCard(
-                  myTitles[2],
-                  myicons[2],
-                  6,
+                Image.asset(
+                  'assets/logo2.png',
+                  fit: BoxFit.cover,
+                  height: 170.0,
+                  width: 210,
                 ),
               ],
             ),
+            actions: <Widget>[
+              IconButton(
+                padding: EdgeInsets.all(5.0),
+                icon: Icon(Icons.search),
+                onPressed: () {
+                  // Implement navigation to shopping cart page here...
+                },
+              ),
+            ]),
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/catpawBackground.png"),
+            fit: BoxFit.fill,
           ),
-          Container(
-            width: double.infinity,
-            height: 1,
-            color: Colors.grey.shade600,
-          ),
-          //loadcontent(),
-          Expanded(
-            flex: 77,
-            child: PageView(
-              controller: _pageController1, // It is used to control the pages.
-              children: _pages,
-              onPageChanged:
-                  _onPageChange, // This is called when page change occurs.
-              physics: BouncingScrollPhysics(),
+        ),
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              flex: 15,
+              child: Container(
+                color: Colors.white,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  shrinkWrap: true,
+                  children: <Widget>[
+                    _SectionCard(
+                      myTitles[0],
+                      myicons[0],
+                      0,
+                    ),
+                    _SectionCard(
+                      myTitles[1],
+                      myicons[1],
+                      1,
+                    ),
+                    _SectionCard(
+                      myTitles[2],
+                      myicons[2],
+                      2,
+                    ),
+                    _SectionCard(
+                      myTitles[3],
+                      myicons[3],
+                      3,
+                    ),
+                    _SectionCard(
+                      myTitles[4],
+                      myicons[4],
+                      4,
+                    ),
+                    _SectionCard(
+                      myTitles[0],
+                      myicons[0],
+                      5,
+                    ),
+                    _SectionCard(
+                      myTitles[2],
+                      myicons[2],
+                      6,
+                    ),
+                  ],
+                ),
+              ),
             ),
-          ),
-        ],
+            Container(
+              width: double.infinity,
+              height: 1,
+              color: Colors.grey.shade600,
+            ),
+            //loadcontent(),
+            Expanded(
+              flex: 77,
+              child: PageView(
+                controller:
+                    _pageController1, // It is used to control the pages.
+                children: _pages,
+                onPageChanged:
+                    _onPageChange, // This is called when page change occurs.
+                physics: BouncingScrollPhysics(),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 
-  Widget customTextField(String hint, Icon iconName) {
-    return Column(
-      children: <Widget>[
-        SizedBox(
-          height: 10,
-        ),
-        Container(
-          decoration: BoxDecoration(
-            color: Color(0xffEDEDEF).withOpacity(0.5),
-            borderRadius: BorderRadius.circular(25),
-          ),
-          child: TextField(
-            style: TextStyle(color: Colors.white),
-            cursorColor: Colors.white,
-            decoration: InputDecoration(
-                border: InputBorder.none,
-                focusedBorder: InputBorder.none,
-                enabledBorder: InputBorder.none,
-                errorBorder: InputBorder.none,
-                disabledBorder: InputBorder.none,
-                fillColor: Color(0xffEDEDEF).withOpacity(0),
-                filled: true,
-                hintText: hint,
-                labelStyle: TextStyle(color: Colors.white),
-                suffixIcon: iconName),
-          ),
-        ),
-      ],
-    );
-  }
+  // Widget customTextField(String hint, Icon iconName) {
+  //   return Column(
+  //     children: <Widget>[
+  //       SizedBox(
+  //         height: 10,
+  //       ),
+  //       Container(
+  //         decoration: BoxDecoration(
+  //           color: Color(0xffEDEDEF).withOpacity(0.5),
+  //           borderRadius: BorderRadius.circular(25),
+  //         ),
+  //         child: TextField(
+  //           style: TextStyle(color: Colors.white),
+  //           cursorColor: Colors.white,
+  //           decoration: InputDecoration(
+  //               border: InputBorder.none,
+  //               focusedBorder: InputBorder.none,
+  //               enabledBorder: InputBorder.none,
+  //               errorBorder: InputBorder.none,
+  //               disabledBorder: InputBorder.none,
+  //               fillColor: Color(0xffEDEDEF).withOpacity(0),
+  //               filled: true,
+  //               hintText: hint,
+  //               labelStyle: TextStyle(color: Colors.white),
+  //               suffixIcon: iconName),
+  //         ),
+  //       ),
+  //     ],
+  //   );
+  // }
 
   Widget _SectionCard(String title, IconData myIcon, int index) {
     return Stack(
