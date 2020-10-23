@@ -25,7 +25,7 @@ class _ServicePageState extends State<ServicePage> {
           children: <Widget>[
             FormBuilder(
               key: _fbKey,
-              autovalidate: true,
+              autovalidateMode: AutovalidateMode.always,
               child: Column(
                 children: <Widget>[
                   FormBuilderDateTimePicker(
