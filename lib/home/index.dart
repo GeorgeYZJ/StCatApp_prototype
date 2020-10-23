@@ -68,29 +68,21 @@ class _IndexPageState extends State<IndexPage> {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(55.0),
         child: AppBar(
-            automaticallyImplyLeading: false,
-            elevation: 0,
-            backgroundColor: Colors.white,
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Image.asset(
-                  'assets/logo2.png',
-                  fit: BoxFit.cover,
-                  height: 170.0,
-                  width: 210,
-                ),
-              ],
-            ),
-            actions: <Widget>[
-              IconButton(
-                padding: EdgeInsets.all(5.0),
-                icon: Icon(Icons.search),
-                onPressed: () {
-                  // Implement navigation to shopping cart page here...
-                },
+          automaticallyImplyLeading: false,
+          elevation: 0,
+          backgroundColor: Colors.white,
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Image.asset(
+                'assets/logo3.png',
+                fit: BoxFit.cover,
+                height: 42.0,
+                width: 210,
               ),
-            ]),
+            ],
+          ),
+        ),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -217,10 +209,11 @@ class _IndexPageState extends State<IndexPage> {
                   });
                 },
                 child: Container(
-                  height: MediaQuery.of(context).size.height * 0.08,
+                  margin: EdgeInsets.only(top: 0),
+                  height: MediaQuery.of(context).size.height * 0.086,
                   width: MediaQuery.of(context).size.width * 0.15,
                   decoration: BoxDecoration(
-                    color: Color.fromRGBO(223, 25, 149, 0.8),
+                    color: Color.fromRGBO(26, 114, 206, 0.9),
                     borderRadius: BorderRadius.circular(80),
                   ),
                   child: Column(
@@ -229,23 +222,23 @@ class _IndexPageState extends State<IndexPage> {
                     children: <Widget>[
                       Icon(
                         myIcon,
-                        color: Color.fromRGBO(0, 38, 56, 1),
-                        size: 30,
+                        color: Colors.white,
+                        size: 40,
                       ),
-                      SizedBox(
-                        height: 1,
-                      ),
+                      // SizedBox(
+                      //   height: 1,
+                      // ),
                     ],
                   ),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(1.0),
+                padding: const EdgeInsets.only(top: 2),
                 child: Text(
                   title,
                   style: TextStyle(
                     color: Color.fromRGBO(0, 38, 56, 1),
-                    fontSize: 15,
+                    fontSize: 14,
                   ),
                 ),
               ),

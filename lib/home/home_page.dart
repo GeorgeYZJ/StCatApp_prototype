@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 
 import '../group/group.dart';
 import '../more/more.dart';
@@ -44,70 +44,31 @@ class _HomePageState extends State<HomePage> {
         onPageChanged: _onPageChange,
         physics: NeverScrollableScrollPhysics(),
       ),
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: ConvexAppBar(
+        initialActiveIndex: 2,
         backgroundColor: Color.fromRGBO(0, 114, 206, 1),
-        type: BottomNavigationBarType.fixed,
+        // type: BottomNavigationBarType.fixed,
         onTap: _onItemTapped,
         items: [
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.group,
-              color: _selectedIndex == 0 ? Colors.white : Colors.black38,
-            ),
-            title: Text(
-              'Group',
-              style: TextStyle(
-                color: _selectedIndex == 0 ? Colors.white : Colors.black38,
-              ),
-            ),
+          TabItem(
+            icon: Icons.group,
+            title: 'Group',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.wb_incandescent,
-              color: _selectedIndex == 1 ? Colors.white : Colors.black38,
-            ),
-            title: Text(
-              'Wing',
-              style: TextStyle(
-                color: _selectedIndex == 1 ? Colors.white : Colors.black38,
-              ),
-            ),
+          TabItem(
+            icon: Icons.wb_incandescent,
+            title: 'Portal',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home,
-              color: _selectedIndex == 2 ? Colors.white : Colors.black38,
-            ),
-            title: Text(
-              'Home',
-              style: TextStyle(
-                color: _selectedIndex == 2 ? Colors.white : Colors.black38,
-              ),
-            ),
+          TabItem(
+            icon: Icons.home,
+            title: 'Home',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.settings,
-              color: _selectedIndex == 3 ? Colors.white : Colors.black38,
-            ),
-            title: Text(
-              'Setting',
-              style: TextStyle(
-                color: _selectedIndex == 3 ? Colors.white : Colors.black38,
-              ),
-            ),
+          TabItem(
+            icon: Icons.settings,
+            title: 'Setting',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.view_comfy,
-              color: _selectedIndex == 4 ? Colors.white : Colors.black38,
-            ),
-            title: Text(
-              'More',
-              style: TextStyle(
-                color: _selectedIndex == 4 ? Colors.white : Colors.black38,
-              ),
-            ),
+          TabItem(
+            icon: Icons.view_comfy,
+            title: 'More',
           ),
         ],
       ),
